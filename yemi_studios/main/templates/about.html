@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - Yemi Studios{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>About Yemi Studios</h1>
+        <p>Your trusted beauty destination</p>
+    </div>
+</section>
+
+<section class="about-content">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>Our Story</h2>
+                <p>Yemi Studios was founded with a passion for helping people look and feel their absolute best. Located in the heart of Jos, Plateau State, we've built a reputation for excellence in hair, beauty, and nail services.</p>
+                <p>Our team of skilled professionals brings years of experience and stays updated with the latest trends and techniques in the beauty industry. We believe that everyone deserves to feel confident and beautiful, and we're here to make that happen.</p>
+                
+                <h2>Why Choose Us?</h2>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Professional and experienced stylists</li>
+                    <li><i class="fas fa-check"></i> Premium quality products</li>
+                    <li><i class="fas fa-check"></i> Personalized service for every client</li>
+                    <li><i class="fas fa-check"></i> Clean and comfortable environment</li>
+                    <li><i class="fas fa-check"></i> Affordable pricing</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <img src="{% static 'images/about-placeholder.jpg' %}" alt="Yemi Studios" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

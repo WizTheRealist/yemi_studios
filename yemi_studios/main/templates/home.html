@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to Yemi Studios</h1>
+        <p>Transform your look with our premium hair, beauty, and nail services</p>
+        <div class="hero-buttons">
+            <a href="{% url 'main:booking' %}" class="btn btn-primary">Book Appointment</a>
+            <a href="{% url 'main:gallery' %}" class="btn btn-secondary">View Gallery</a>
+        </div>
+    </div>
+</section>
+
+<section class="services">
+    <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Professional beauty services tailored just for you</p>
+        <div class="services-grid">
+            {% for service in services %}
+            <div class="service-card">
+                <i class="{{ service.icon }} service-icon"></i>
+                <h3>{{ service.name }}</h3>
+                <p>{{ service.description }}</p>
+            </div>
+            {% empty %}
+            <!-- Default services if none in database -->
+            <div class="service-card">
+                <i class="fas fa-cut service-icon"></i>
+                <h3>Human Hair & Wigs</h3>
+                <p>Premium quality human hair and custom wig installations</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-hand-sparkles service-icon"></i>
+                <h3>Nails & Pedicure</h3>
+                <p>Professional nail care and stunning nail art designs</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-eye service-icon"></i>
+                <h3>Lashes</h3>
+                <p>Beautiful lash extensions for that perfect flutter</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-paint-brush service-icon"></i>
+                <h3>Makeup</h3>
+                <p>Expert makeup application for any occasion</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="featured-work">
+    <div class="container">
+        <h2 class="section-title">Featured Work</h2>
+        <p class="section-subtitle">Check out some of our best transformations</p>
+        <div class="gallery-grid">
+            {% for image in featured_images %}
+            <div class="gallery-item">
+                <img src="{{ image.image.url }}" alt="{{ image.title }}">
+                <div class="gallery-overlay">
+                    <h4>{{ image.title }}</h4>
+                    <p>{{ image.category.name }}</p>
+                </div>
+            </div>
+            {% empty %}
+            <p class="empty-message">Featured work will be displayed here. Upload images via the admin panel.</p>
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            <a href="{% url 'main:gallery' %}" class="btn btn-primary">View Full Gallery</a>
+        </div>
+    </div>
+</section>
+
+{% if testimonials %}
+<section class="testimonials">
+    <div class="container">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="testimonials-grid">
+            {% for testimonial in testimonials %}
+            <div class="testimonial-card">
+                <div class="stars">
+                    {% for i in "12345" %}
+                        {% if forloop.counter <= testimonial.rating %}
+                        <i class="fas fa-star"></i>
+                        {% else %}
+                        <i class="far fa-star"></i>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <p>"{{ testimonial.content }}"</p>
+                <h4>{{ testimonial.client_name }}</h4>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<section class="cta">
+    <div class="container">
+        <h2>Ready to Transform Your Look?</h2>
+        <p>Book your appointment today and experience the Yemi Studios difference</p>
+        <a href="{% url 'main:booking' %}" class="btn btn-primary btn-large">Book Now</a>
+    </div>
+</section>
+{% endblock %}

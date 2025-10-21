@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Gallery - Yemi Studios{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>Our Gallery</h1>
+        <p>Browse through our portfolio of stunning transformations</p>
+    </div>
+</section>
+
+<section class="gallery-page">
+    <div class="container">
+        <div class="gallery-filters">
+            <a href="{% url 'main:gallery' %}" class="filter-btn {% if not active_category %}active{% endif %}">All</a>
+            {% for category in categories %}
+            <a href="?category={{ category.slug }}" class="filter-btn {% if active_category == category %}active{% endif %}">{{ category.name }}</a>
+            {% endfor %}
+        </div>
+
+        <div class="gallery-grid">
+            {% for image in images %}
+            <div class="gallery-item">
+                <img src="{{ image.image.url }}" alt="{{ image.title }}">
+                <div class="gallery-overlay">
+                    <h4>{{ image.title }}</h4>
+                    <p>{{ image.category.name }}</p>
+                </div>
+            </div>
+            {% empty %}
+            <p class="empty-message">No images found. Upload images via the admin panel.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

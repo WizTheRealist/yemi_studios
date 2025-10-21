@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}Book Appointment - Yemi Studios{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>Book Your Appointment</h1>
+        <p>Get in touch with us today</p>
+    </div>
+</section>
+
+<section class="booking-section">
+    <div class="container">
+        <div class="booking-grid">
+            <div class="booking-info">
+                <h2>Contact Information</h2>
+                <p>Reach out to us via WhatsApp or email to schedule your appointment. We're here to help!</p>
+                
+                <div class="contact-method">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <h3>WhatsApp</h3>
+                        <a href="https://wa.me/234XXXXXXXXXX" target="_blank" class="btn btn-success">
+                            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <a href="mailto:info@yemistudios.com" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> Send Email
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-method">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+234 XXX XXX XXXX</p>
+                    </div>
+                </div>
+
+                <div class="contact-method">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Location</h3>
+                        <p>Jos, Plateau State, Nigeria</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="business-hours">
+                <h2>Business Hours</h2>
+                <table class="hours-table">
+                    <tr>
+                        <td>Monday - Friday</td>
+                        <td>9:00 AM - 7:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td>9:00 AM - 6:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>Closed</td>
+                    </tr>
+                </table>
+
+                <div class="booking-note">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Walk-ins are welcome, but appointments are recommended to ensure availability.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
