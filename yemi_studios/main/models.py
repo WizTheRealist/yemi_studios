@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -14,7 +15,7 @@ class Category(models.Model):
 
 class GalleryImage(models.Model):
     title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='gallery/')
+    image = CloudinaryField('image', folder='yemi_studios/')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='images')
     description = models.TextField(blank=True)
     is_featured = models.BooleanField(default=False)
