@@ -31,6 +31,8 @@ class Service(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     icon = models.CharField(max_length=50, help_text="Font Awesome icon class")
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, 
+                                 help_text="Link to gallery category (optional)")
     order = models.IntegerField(default=0)
     
     class Meta:
@@ -38,6 +40,10 @@ class Service(models.Model):
     
     def __str__(self):
         return self.name
+    
+    def has_gallery(self):
+        """Check if this service has a linked category with images"""
+        return self.category and self.category.images.exists()
 
 class Testimonial(models.Model):
     client_name = models.CharField(max_length=100)

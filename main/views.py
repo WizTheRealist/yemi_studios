@@ -5,6 +5,52 @@ def home(request):
     featured_images = GalleryImage.objects.filter(is_featured=True)[:6]
     services = Service.objects.all()
     testimonials = Testimonial.objects.all()[:3]
+
+    # Default services with category slugs if no services in database
+    default_services = [
+        {
+            'name': 'Human Hair & Wigs',
+            'description': 'Premium quality human hair and custom wig installations',
+            'icon': 'fas fa-cut',
+            'category_slug': 'wigs'
+        },
+        {
+            'name': 'Nails & Pedicure',
+            'description': 'Professional nail care and stunning nail art designs',
+            'icon': 'fas fa-hand-sparkles',
+            'category_slug': 'nails'
+        },
+        {
+            'name': 'Lashes',
+            'description': 'Beautiful lash extensions for that perfect flutter',
+            'icon': 'fas fa-eye',
+            'category_slug': 'lashes'
+        },
+        {
+            'name': 'Makeup',
+            'description': 'Expert makeup application for any occasion',
+            'icon': 'fas fa-paint-brush',
+            'category_slug': 'makeup'
+        },
+    ]
+    
+    # Check which default services have galleries
+    if not services:
+        for service in default_services:
+            try:
+                category = Category.objects.get(slug=service['category_slug'])
+                print("Found category:", category.slug)
+                print("Images exist:", hasattr(category, "images"))
+                if hasattr(category, "images"):
+                    service['has_gallery'] = category.images.exists()
+                else:
+                    service['has_gallery'] = False
+                service['category'] = category
+            except Category.DoesNotExist:
+                print("Missing category:", service['category_slug'])
+                service['has_gallery'] = False
+                service['category'] = None
+
     context = {
         'featured_images': featured_images,
         'services': services,
