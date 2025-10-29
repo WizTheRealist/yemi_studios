@@ -222,6 +222,18 @@ section {
     color: var(--gray-color);
 }
 
+.service-card-link {
+    text-decoration: none;  /* removes underline */
+    color: inherit;         /* makes text use parent color */
+    display: block;         /* ensures it wraps the whole card */
+  }
+  
+  .service-card-link:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+
 /* Gallery */
 .gallery-grid {
     display: grid;
