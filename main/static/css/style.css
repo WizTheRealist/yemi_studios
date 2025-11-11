@@ -132,34 +132,53 @@ body {
 }
 
 /* Hero Section */
+/* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--black) 0%, #1a1a1a 50%, var(--black) 100%);
-    color: var(--white);
-    padding: 120px 0;
-    text-align: center;
-    border-bottom: 2px solid var(--primary-color);
-}
-
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    animation: fadeInDown 1s;
-    color: var(--primary-color);
-}
-
-.hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    animation: fadeInUp 1s;
-    color: var(--white);
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+    background-image: 
+        /*linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(26, 26, 26, 0.7) 50%, rgba(0, 0, 0, 0.7) 100%),*/
+        url('https://res.cloudinary.com/dzy5ipgwv/image/upload/v1762900563/4bca8de5-fce0-4489-b9e7-3d7287967d76_jvdeb7.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: var(--white);
+        padding: 0;
+        text-align: center;
+        border: none;
+        position: relative;
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 60px 20px;
+        width: 100%;
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        animation: fadeInDown 1s;
+        color: var(--primary-color);
+    }
+    
+    .hero-content p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        animation: fadeInUp 1s;
+        color: var(--white);
+    }
+    
+    .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
 
 /* Sections */
 section {
@@ -245,41 +264,39 @@ section {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
-    aspect-ratio: 1;
     cursor: pointer;
     border: 2px solid rgba(255,215,0,0.3);
+    background: var(--black);
 }
 
 .gallery-item img {
     width: 100%;
-    height: 100%;
+    height: 300px;
     object-fit: cover;
     transition: var(--transition);
+    display: block;
 }
 
 .gallery-item:hover img {
     transform: scale(1.1);
 }
 
-.gallery-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    color: var(--white);
-    padding: 2rem;
-    transform: translateY(100%);
-    transition: var(--transition);
+.gallery-info {
+    padding: 1.5rem;
+    background: var(--black);
+    text-align: center;
 }
 
-.gallery-item:hover .gallery-overlay {
-    transform: translateY(0);
-}
-
-.gallery-overlay h4 {
+.gallery-info h4 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.gallery-info p {
+    color: var(--white);
+    font-size: 0.9rem;
+    margin: 0;
 }
 
 .text-center {
@@ -381,7 +398,8 @@ section {
     color: var(--white);
     padding: 80px 0;
     text-align: center;
-    border-bottom: 2px solid var(--primary-color);
+    /* border-bottom: 2px solid var(--primary-color); */
+    border: none;
 }
 
 .page-header h1 {
@@ -652,13 +670,22 @@ section {
         display: flex;
     }
 
+    .hero {
+        min-height: 400px;
+    }
+    
+    .hero-content {
+        padding: 40px 20px;
+    }
+    
     .hero-content h1 {
         font-size: 2rem;
     }
-
+    
     .hero-content p {
         font-size: 1.1rem;
     }
+
 
     .section-title {
         font-size: 2rem;
@@ -684,5 +711,29 @@ section {
 
     .social-links {
         justify-content: center;
+    }
+}
+
+@media (max-width: 1200px) {
+    .hero {
+        min-height: 450px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        min-height: 300px;
+    }
+    
+    .hero-content {
+        padding: 30px 15px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
     }
 }

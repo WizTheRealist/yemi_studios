@@ -9,10 +9,10 @@ def home(request):
     # Default services with category slugs if no services in database
     default_services = [
         {
-            'name': 'Human Hair & Wigs',
-            'description': 'Premium quality human hair and custom wig installations',
+            'name': 'Hairstyling',
+            'description': 'Quality hairstyling',
             'icon': 'fas fa-cut',
-            'category_slug': 'wigs'
+            'category_slug': 'hairstyling'
         },
         {
             'name': 'Nails & Pedicure',

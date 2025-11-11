@@ -4,11 +4,11 @@
 {% block content %}
 <section class="hero">
     <div class="hero-content">
-        <h1>Welcome to Yemi Studios</h1>
-        <p>Transform your look with our premium hair, beauty, and nail services</p>
+        <!-- <h1>Welcome to Yemi Studios</h1> -->
+        <!-- <p>Transform your look with our premium hair, beauty, and nail services</p> -->
         <div class="hero-buttons">
-            <a href="{% url 'main:booking' %}" class="btn btn-primary">Book Appointment</a>
-            <a href="{% url 'main:gallery' %}" class="btn btn-secondary">View Gallery</a>
+            <!-- <a href="{% url 'main:booking' %}" class="btn btn-primary">Book Appointment</a> -->
+            <!-- <a href="{% url 'main:gallery' %}" class="btn btn-secondary">View Gallery</a> -->
         </div>
     </div>
 </section>
@@ -71,9 +71,9 @@
             {% for image in featured_images %}
             <div class="gallery-item">
                 <img src="{{ image.image.url }}" alt="{{ image.title }}">
-                <div class="gallery-overlay">
+                <div class="gallery-info">
                     <h4>{{ image.title }}</h4>
-                    <p>{{ image.category.name }}</p>
+                    <!-- <p>{{ image.category.name }}</p> -->
                 </div>
             </div>
             {% empty %}

@@ -23,9 +23,9 @@
             {% for image in images %}
             <div class="gallery-item">
                 <img src="{{ image.image.url }}" alt="{{ image.title }}">
-                <div class="gallery-overlay">
+                <div class="gallery-info">
                     <h4>{{ image.title }}</h4>
-                    <p>{{ image.category.name }}</p>
+                    <!-- <p>{{ image.category.name }}</p> -->
                 </div>
             </div>
             {% empty %}
